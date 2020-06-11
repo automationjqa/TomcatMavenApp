@@ -32,6 +32,11 @@
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
+                    <apiToken>${TOKEN}</apiToken>
+                    <context>${CONTEXT}</context>
+                    <environment>${TARGET_ENV}</environment>
+                    <comment>test-plugin</comment>
+                    <api_hoster>${JELASTIC_API_ENDPOINT}</api_hoster>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
