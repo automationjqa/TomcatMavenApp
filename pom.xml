@@ -34,6 +34,6 @@
                  <snapshots>
                      <enabled>true</enabled>
                  </snapshots>
-            </pluginRepository>                                
+         </pluginRepository>                                
     </build>
 </project>
