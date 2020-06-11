@@ -31,21 +31,23 @@
                  <version>1.9.3</version>
                  <configuration>
                     <apiToken>${token}</apiToken> <!--an access token is used instead of a login/password, see note below-->
+                    <artifact>${artifact}</artifact> <!--artifact to be deployed-->
                     <context>${context}</context> <!--preferable context name (ROOT if skipped)-->
                     <environment>${envName}</environment> <!--name of a target Jelastic environment-->
                     <comment>${comment}</comment> <!--custom comment, if needed-->
-                    <api_hoster>${hosterDomain}</api_hoster> <!--domain name of your platform-->
+                   <api_hoster>${hosterDomain}</api_hoster> <!--domain name of your platform-->
                  </configuration>
-                </plugin>
+            </plugin>
+ 
             <pluginRepository>
-             <id>sonatype-oss-public</id>
-             <url>https://oss.sonatype.org/content/groups/public</url>
-             <releases>
-                 <enabled>true</enabled>
-             </releases>
-             <snapshots>
-                 <enabled>true</enabled>
-             </snapshots>
+                 <id>sonatype-oss-public</id>
+                 <url>https://oss.sonatype.org/content/groups/public</url>
+                 <releases>
+                     <enabled>true</enabled>
+                 </releases>
+                 <snapshots>
+                     <enabled>true</enabled>
+                 </snapshots>
             </pluginRepository>
         </plugins>            
     </build>
