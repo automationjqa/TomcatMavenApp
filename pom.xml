@@ -26,55 +26,27 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                    <apiToken>${TOKEN}</apiToken>
-                    <context>${CONTEXT}</context>
-                    <environment>${TARGET_ENV}</environment>
-                    <comment>test-plugin</comment>
-                    <api_hoster>${JELASTIC_API_ENDPOINT}</api_hoster>
-                    <compilerArguments>
-                        <endorseddirs>${endorsed.dir}</endorseddirs>
-                    </compilerArguments>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${endorsed.dir}</outputDirectory>
-                            <silent>true</silent>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>javax</groupId>
-                                    <artifactId>javaee-endorsed-api</artifactId>
-                                    <version>7.0</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+                 <groupId>com.jelastic</groupId>
+                 <artifactId>jelastic-maven-plugin</artifactId>
+                 <version>1.9.3</version>
+                 <configuration>
+                    <apiToken>${token}</apiToken> <!--an access token is used instead of a login/password, see note below-->
+                    <context>${context}</context> <!--preferable context name (ROOT if skipped)-->
+                    <environment>${envName}</environment> <!--name of a target Jelastic environment-->
+                    <comment>${comment}</comment> <!--custom comment, if needed-->
+                    <api_hoster>${hosterDomain}</api_hoster> <!--domain name of your platform-->
+                 </configuration>
+                </plugin>
         </plugins>
     </build>
+        <pluginRepository>
+         <id>sonatype-oss-public</id>
+         <url>https://oss.sonatype.org/content/groups/public</url>
+         <releases>
+             <enabled>true</enabled>
+         </releases>
+         <snapshots>
+             <enabled>true</enabled>
+         </snapshots>
+    </pluginRepository>
 </project>
