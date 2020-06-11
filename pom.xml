@@ -7,22 +7,8 @@
     <version>2.0</version>
     <packaging>war</packaging>
 
-    <name>TomcatMavenApp</name>
-
-    <properties>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-    
-    <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
+    <name>TomcatMavenApp</name> 
+        
     <build>
         <plugins>
             <plugin>
@@ -38,8 +24,8 @@
                    <api_hoster>${hosterDomain}</api_hoster> <!--domain name of your platform-->
                  </configuration>
             </plugin>
- 
-            <pluginRepository>
+        </plugins>
+        <pluginRepository>
                  <id>sonatype-oss-public</id>
                  <url>https://oss.sonatype.org/content/groups/public</url>
                  <releases>
@@ -48,7 +34,6 @@
                  <snapshots>
                      <enabled>true</enabled>
                  </snapshots>
-            </pluginRepository>
-        </plugins>            
+            </pluginRepository>                                
     </build>
 </project>
