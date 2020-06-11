@@ -27,8 +27,9 @@
                     <api_hoster>${hosterDomain}</api_hoster> <!--domain name of your platform-->
                  </configuration>
             </plugin>
-        </plugins>
-        <pluginRepositories>
+        </plugins>        
+    </build>
+    <pluginRepositories>
             <pluginRepository>
                      <id>sonatype-oss-public</id>
                      <url>https://oss.sonatype.org/content/groups/public</url>
@@ -40,5 +41,4 @@
                      </snapshots>
              </pluginRepository>
          </pluginRepositories>
-    </build>
 </project>
