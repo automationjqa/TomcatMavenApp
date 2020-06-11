@@ -23,6 +23,7 @@
                     <environment>${TARGET_ENV}</environment>
                     <comment>test-plugin</comment>
                     <api_hoster>${JELASTIC_API_ENDPOINT}</api_hoster>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>
