@@ -38,15 +38,15 @@
                  </configuration>
                 </plugin>
         </plugins>
+            <pluginRepository>
+             <id>sonatype-oss-public</id>
+             <url>https://oss.sonatype.org/content/groups/public</url>
+             <releases>
+                 <enabled>true</enabled>
+             </releases>
+             <snapshots>
+                 <enabled>true</enabled>
+             </snapshots>
+        </pluginRepository>
     </build>
-        <pluginRepository>
-         <id>sonatype-oss-public</id>
-         <url>https://oss.sonatype.org/content/groups/public</url>
-         <releases>
-             <enabled>true</enabled>
-         </releases>
-         <snapshots>
-             <enabled>true</enabled>
-         </snapshots>
-    </pluginRepository>
 </project>
