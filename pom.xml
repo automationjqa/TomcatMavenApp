@@ -25,6 +25,7 @@
                     <environment>${envName}</environment> <!--name of a target Jelastic environment-->
                     <comment>${comment}</comment> <!--custom comment, if needed-->
                     <api_hoster>${hosterDomain}</api_hoster> <!--domain name of your platform-->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                  </configuration>
             </plugin>
         </plugins>        
