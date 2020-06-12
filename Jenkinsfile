@@ -1,15 +1,37 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Test') {
-            steps {
-                /* `make check` returns non-zero on test failures,
-                * using `true` to allow the Pipeline to continue nonetheless
-                */
-                sh 'make check || true' 
-                junit '**/target/*.xml' 
+node {
+    
+    notify('Started')
+    try {
+        stage('checkout') {
+        git 'https://github.com/annajel/TomcatMavenApp.git'
+        }
+        
+        stage('compile, test, package') {
+            withMaven(maven: 'maven'){
+            sh label: '', script: 'mvn clean package'
             }
         }
+        
+        stage('archival') {
+            archiveArtifacts 'target/*.war'
+        }
+        
+        notify('Success')
+        
+    } catch (err) {
+        notify("Error ${err}")
+        echo "Caught: ${err}"
+        currentBuild.result = 'FAILURE'
     }
 }
+
+def notify(status){
+    emailext (
+      to: "ash@gmail.com",
+      subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+      body: """<p>${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
+    )
+}
+
+
