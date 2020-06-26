@@ -8,7 +8,7 @@ node {
         
         stage('compile, test, package') {
             withMaven(maven: 'maven'){
-            sh label: '', script: 'mvn clean package'
+            sh label: '', script: 'mvn clean package jelastic:deploy'
             }
         }
         
